@@ -9,4 +9,16 @@
 
     </style>
 
+
+    <style
+        name="DialogTheme"
+        parent="Theme.AppCompat.Dialog">
+
+        <item name="android:background">@color/dialog_background_color</item>
+        <item name="android:textColorPrimary">@color/text_color</item>
+
+    </style>
+
+
+
 </resources>

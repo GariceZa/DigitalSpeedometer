@@ -2,10 +2,7 @@
 <resources>
 
     <string name="app_name">Digital Speedometer</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="enable_location_service_title">Location Service Disabled</string>
-    <string name="enable_location_service">This app requires location services to provide you with speed readings, please enable location services</string>
+    <string name="enable_location_service">Location services are disabled</string>
     <string name="enable">Enable</string>
     <string name="cancel">Cancel</string>
     <string name="speed_default">---</string>

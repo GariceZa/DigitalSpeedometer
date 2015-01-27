@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App theme colors -->
     <color name="primary_background">#ff010101</color>
     <color name="text_color">#00ff00</color>
+
+    <!-- Location services disabled dialog theme colors -->
+    <color name="dialog_background_color">#bbc5d3</color>
+    <color name="dialog_title_background_color">#0e03b0</color>
+    <color name="dialog_text_color">#1258ba</color>
 </resources>

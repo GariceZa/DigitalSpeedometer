@@ -11,8 +11,6 @@ import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 
@@ -50,9 +48,8 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     // Displays an alert dialog allowing the user to turn location services on
     private void locationServiceDisabledAlert(){
 
-        AlertDialog.Builder locationServiceAlert = new AlertDialog.Builder(this);
-        locationServiceAlert.setTitle(R.string.enable_location_service_title)
-                .setMessage(R.string.enable_location_service)
+        AlertDialog.Builder locationServiceAlert = new AlertDialog.Builder(this,R.style.DialogTheme);
+        locationServiceAlert.setMessage(R.string.enable_location_service)
                 .setCancelable(false)
                 .setPositiveButton(R.string.enable, new DialogInterface.OnClickListener() {
                     @Override
