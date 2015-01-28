@@ -2,9 +2,17 @@
 <resources>
 
     <string name="app_name">Digital Speedometer</string>
+    <string name="enable_location_service_title">GPS Disabled</string>
     <string name="enable_location_service">Location services are disabled</string>
     <string name="enable">Enable</string>
-    <string name="cancel">Cancel</string>
+    <string name="exit">Exit</string>
     <string name="speed_default">---</string>
+    <string name="settings">settings</string>
+    <string name="preference_settings_title">Preferences</string>
+    <string name="list_preference_title">Speed Unit</string>
+    <string name="list_preference_dialog_title">Speed Unit</string>
+    <string name="list_preference_summary">Set your required speed measurement unit</string>
+    <string name="preference_key">unit</string>
+    <string name="default_preference">3.6</string>
 
 </resources>

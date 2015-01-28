@@ -8,9 +8,12 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 
@@ -25,6 +28,10 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // sets the preference default values the first time the app runs
+        PreferenceManager.setDefaultValues(this,R.xml.settings,false);
+
         // If the devices location services are disabled
         if(!locationServiceEnabled()){
             // Notify user
@@ -38,6 +45,22 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                startActivity(new Intent(this,ShowUserPreferences.class));
+        }
+
+        return true;
+    }
+
     // Determines if location services are enabled
     private boolean locationServiceEnabled() {
 
@@ -49,7 +72,8 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     private void locationServiceDisabledAlert(){
 
         AlertDialog.Builder locationServiceAlert = new AlertDialog.Builder(this,R.style.DialogTheme);
-        locationServiceAlert.setMessage(R.string.enable_location_service)
+        locationServiceAlert.setTitle(R.string.enable_location_service_title)
+        //locationServiceAlert.setMessage(R.string.enable_location_service)
                 .setCancelable(false)
                 .setPositiveButton(R.string.enable, new DialogInterface.OnClickListener() {
                     @Override
@@ -60,7 +84,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
                         finish();
                     }
                 });
-        locationServiceAlert.setNegativeButton(R.string.cancel,new DialogInterface.OnClickListener() {
+        locationServiceAlert.setNegativeButton(R.string.exit,new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // destroys the application
@@ -108,6 +132,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     public void onProviderDisabled(String provider) {
         Log.i("--onProviderDisabled","Provider Disabled " + provider);
     }
+
 
     private class RetrieveSpeed extends AsyncTask<Location,Void,Integer> {
 

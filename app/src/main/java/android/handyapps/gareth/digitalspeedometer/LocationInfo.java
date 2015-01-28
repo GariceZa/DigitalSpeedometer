@@ -17,8 +17,11 @@ public class LocationInfo {
         context = con;
     }
 
+    // Returns a speed value based on the speed unit preference
     protected int getSpeed(){
-        speed = (int)(location.getSpeed() * 3.6);
+
+        Preferences prefs = new Preferences(context);
+        speed = (int)(location.getSpeed() * prefs.getSpeedUnit());
         return  speed;
     }
 }
