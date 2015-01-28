@@ -72,8 +72,9 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     private void locationServiceDisabledAlert(){
 
         AlertDialog.Builder locationServiceAlert = new AlertDialog.Builder(this,R.style.DialogTheme);
-        locationServiceAlert.setTitle(R.string.enable_location_service_title)
-        //locationServiceAlert.setMessage(R.string.enable_location_service)
+        locationServiceAlert.setTitle(R.string.enable_location_service_title);
+        locationServiceAlert.setMessage(R.string.enable_location_service)
+                .setIcon(R.drawable.ic_alert_white_36dp)
                 .setCancelable(false)
                 .setPositiveButton(R.string.enable, new DialogInterface.OnClickListener() {
                     @Override

@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">Digital Speedometer</string>
-    <string name="enable_location_service_title">GPS Disabled</string>
-    <string name="enable_location_service">Location services are disabled</string>
+    <string name="enable_location_service_title">Location Services</string>
+    <string name="enable_location_service">Location services are disabled,this app requires location services to be on</string>
     <string name="enable">Enable</string>
     <string name="exit">Exit</string>
     <string name="speed_default">---</string>

@@ -5,6 +5,6 @@
     <color name="text_color">#00ff00</color>
 
     <!-- Location services disabled dialog theme colors  -->
-    <color name="dialog_background_color">#ffffff</color>
-    <color name="dialog_text_color">#ff37baa3</color>
+    <color name="dialog_background_color">#424242</color>
+    <color name="dialog_text_color">#ffffff</color>
 </resources>
