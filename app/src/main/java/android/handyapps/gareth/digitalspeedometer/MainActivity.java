@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class MainActivity extends ActionBarActivity implements LocationListener {
@@ -25,6 +27,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     private TextView speed,speedUnit;
     private LocationManager locMan;
     private String provider;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
             // Set the text view to the digital font
             setTypeFace();
         }
+
     }
 
     @Override
@@ -54,6 +58,8 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         super.onPause();
         // Stop retrieving location updates
         stopLocationUpdates();
+        // Pause admob
+        pauseAds();
     }
 
     @Override
@@ -61,6 +67,8 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         super.onResume();
         // Start retrieving location updates
         startLocationUpdates();
+        // Start admob
+        startAds();
     }
 
     @Override
@@ -82,7 +90,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(Location location) {
-        // Executes an async task to update the speed
+        // Executes an async task to update the speed every time there is a location update
         new RetrieveSpeed().execute(location);
     }
 
@@ -99,6 +107,22 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     @Override
     public void onProviderDisabled(String provider) {
         Log.i("--onProviderDisabled","Provider Disabled " + provider);
+    }
+
+    // Starts new ad requests from admob
+    private void startAds(){
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+    }
+
+    // Pauses admob requests
+    private void pauseAds(){
+
+        if(mAdView != null){
+            mAdView.pause();
+        }
     }
 
     // Sets the color of the actionbar
