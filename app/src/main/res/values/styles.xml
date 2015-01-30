@@ -4,20 +4,6 @@
         name="AppTheme"
         parent="Theme.AppCompat">
 
-        <item name="android:background">@color/primary_background</item>
-        <item name="android:textColor">@color/text_color</item>
-
     </style>
-
-
-    <style
-        name="DialogTheme"
-        parent="Theme.AppCompat.Dialog">
-
-        <item name="android:background">@color/dialog_background_color</item>
-        <item name="android:textColor">@color/dialog_text_color</item>
-
-    </style>
-
 
 </resources>

@@ -5,18 +5,26 @@
 
 
     <!-- 320sw -->
-    <dimen name="text_size_320sw">80sp</dimen>
-    <dimen name="text_size_320sw_land">100sp</dimen>
+    <dimen name="text_size_320sw">100sp</dimen>
+    <dimen name="unit_text_size_320sw">30sp</dimen>
+    <dimen name="text_size_320sw_land">120sp</dimen>
+    <dimen name="unit_text_size_320sw_land">30sp</dimen>
 
     <!-- 480sw -->
-    <dimen name="text_size_480sw">100sp</dimen>
-    <dimen name="text_size_480sw_land">120sp</dimen>
+    <dimen name="text_size_480sw">120sp</dimen>
+    <dimen name="unit_text_size_480sw">40sp</dimen>
+    <dimen name="text_size_480sw_land">140sp</dimen>
+    <dimen name="unit_text_size_480sw_land">40sp</dimen>
 
     <!-- 600sw -->
-    <dimen name="text_size_600sw">150sp</dimen>
+    <dimen name="text_size_600sw">160sp</dimen>
+    <dimen name="unit_text_size_600sw">50sp</dimen>
     <dimen name="text_size_600sw_land">180sp</dimen>
+    <dimen name="unit_text_size_600sw_land">50sp</dimen>
 
     <!-- 720sw -->
-    <dimen name="text_size_720sw">180sp</dimen>
-    <dimen name="text_size_720sw_land">200sp</dimen>
+    <dimen name="text_size_720sw">200sp</dimen>
+    <dimen name="unit_text_size_720sw">50sp</dimen>
+    <dimen name="text_size_720sw_land">220sp</dimen>
+    <dimen name="unit_text_size_720sw_land">50sp</dimen>
 </resources>

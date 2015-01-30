@@ -21,4 +21,5 @@ public class Preferences {
         SharedPreferences get = PreferenceManager.getDefaultSharedPreferences(context);
         return Double.parseDouble(get.getString("unit", "3.6"));
     }
+
 }

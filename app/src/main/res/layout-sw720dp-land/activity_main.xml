@@ -3,7 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:background="@color/primary_background">
+
+    <TextView
+        android:id="@+id/tvSpeedUnit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textSize="@dimen/unit_text_size_720sw_land"
+        android:textColor="@color/text_color"
+        />
 
     <TextView
         android:id="@+id/tvSpeed"
@@ -12,6 +23,7 @@
         android:gravity="center"
         android:textSize="@dimen/text_size_720sw_land"
         android:text="@string/speed_default"
+        android:textColor="@color/text_color"
         />
 
 </LinearLayout>
