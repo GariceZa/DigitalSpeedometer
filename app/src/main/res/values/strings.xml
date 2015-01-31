@@ -3,8 +3,8 @@
 
     <string name="app_name">Digital Speedometer</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="enable_location_service_title">Location Services</string>
-    <string name="enable_location_service">Location services are disabled,this app requires location services to be on</string>
+    <string name="enable_location_service_title">GPS Disabled</string>
+    <string name="enable_location_service">Enable location services?</string>
     <string name="enable">Enable</string>
     <string name="exit">Exit</string>
     <string name="kph">Kph</string>
@@ -15,7 +15,7 @@
     <string name="preference_settings_title">User Preferences</string>
     <string name="list_preference_title">Speed Unit</string>
     <string name="list_preference_dialog_title">Speed Unit</string>
-    <string name="list_preference_summary">Set your required speed measurement unit</string>
+    <string name="list_preference_summary">Set your required speed unit</string>
     <string name="preference_key">unit</string>
     <string name="default_preference">3.6</string>
 

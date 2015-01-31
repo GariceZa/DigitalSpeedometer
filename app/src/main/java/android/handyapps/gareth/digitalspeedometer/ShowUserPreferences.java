@@ -13,6 +13,7 @@ public class ShowUserPreferences extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new UserPreferencesFragment())
@@ -24,19 +25,17 @@ public class ShowUserPreferences extends ActionBarActivity {
 
         // define the color of the action bar
         setActionBarColor();
-
-
     }
 
     // Called when the user selects the home arrow
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // If the user clicks the back/home arrow
         switch (item.getItemId()){
             case android.R.id.home:
                 finish(); // Close the preference screen
         }
-
         return super.onOptionsItemSelected(item);
     }
 

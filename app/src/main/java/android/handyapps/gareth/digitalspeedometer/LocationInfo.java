@@ -8,11 +8,11 @@ import android.location.Location;
  */
 public class LocationInfo {
 
-    private int speed = 0;
     private Location location;
     private Context context;
 
     public LocationInfo(Location loc,Context con){
+
         location = loc;
         context = con;
     }
@@ -21,7 +21,6 @@ public class LocationInfo {
     protected int getSpeed(){
 
         Preferences prefs = new Preferences(context);
-        speed = (int)(location.getSpeed() * prefs.getSpeedUnit());
-        return  speed;
+        return (int)(location.getSpeed() * prefs.getSpeedUnit());
     }
 }

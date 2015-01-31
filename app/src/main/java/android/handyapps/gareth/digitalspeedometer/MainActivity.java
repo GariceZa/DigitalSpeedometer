@@ -38,37 +38,38 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         // define the color of the action bar
         setActionBarColor();
 
+        // Set font of text views
+        setTypeFace();
+
         // sets the preference default values the first time the app runs
         PreferenceManager.setDefaultValues(this,R.xml.settings,false);
+    }
 
+    @Override
+    protected void onResume() {
+
+        super.onResume();
         // If the devices location services are disabled
         if(!locationServiceEnabled()){
             // Notify user
             locationServiceDisabledAlert();
         }
         else {
-            // Set the text view to the digital font
-            setTypeFace();
+            // Start retrieving location updates
+            startLocationUpdates();
+            // Start admob
+            startAds();
         }
-
     }
 
     @Override
     protected void onPause() {
+
         super.onPause();
         // Stop retrieving location updates
         stopLocationUpdates();
         // Pause admob
         pauseAds();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // Start retrieving location updates
-        startLocationUpdates();
-        // Start admob
-        startAds();
     }
 
     @Override
@@ -90,6 +91,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(Location location) {
+
         // Executes an async task to update the speed every time there is a location update
         new RetrieveSpeed().execute(location);
     }
@@ -141,6 +143,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
     // Displays an alert dialog allowing the user to turn location services on
     private void locationServiceDisabledAlert(){
+
         //https://github.com/afollestad/material-dialogs
         new MaterialDialog.Builder(this)
                 .title(R.string.enable_location_service_title)
@@ -201,29 +204,31 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
         locMan      = (LocationManager)getSystemService(LOCATION_SERVICE);
         provider    = LocationManager.GPS_PROVIDER;
-
         locMan.requestLocationUpdates(provider,1000,0, this);
     }
 
     private void stopLocationUpdates(){
 
-        locMan.removeUpdates(this);
+        if(locMan != null) {
+            locMan.removeUpdates(this);
+        }
     }
 
     private class RetrieveSpeed extends AsyncTask<Location,Void,Integer> {
 
         @Override
         protected Integer doInBackground(Location... params) {
+
             // Instantiates a new instance of the LocationInfo class
             LocationInfo locationInfo = new LocationInfo(params[0],getApplicationContext());
-            Log.i("---LOCATION---",params[0].toString());
-            Log.i("---SPEED---", String.valueOf(locationInfo.getSpeed()));
+
             // Returns the current speed
             return locationInfo.getSpeed();
         }
 
         @Override
         protected void onPostExecute(Integer integer) {
+
             super.onPostExecute(integer);
             // Sets the text view to the current speed
             speed.setText(String.valueOf(integer));

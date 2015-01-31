@@ -13,8 +13,10 @@ public class Preferences {
     Context context;
 
     public Preferences(Context cont){
+
         context = cont;
     }
+
     // returns the users speed unit preference
     protected double getSpeedUnit(){
 
