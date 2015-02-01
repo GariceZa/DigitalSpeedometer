@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Digital Speedometer</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="app_name">Speedometer</string>
+    <string name="banner_ad_unit_id">pub-5347454521890432</string>
     <string name="enable_location_service_title">GPS Disabled</string>
     <string name="enable_location_service">Enable location services?</string>
     <string name="enable">Enable</string>
@@ -20,3 +20,4 @@
     <string name="default_preference">3.6</string>
 
 </resources>
+
