@@ -111,6 +111,28 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         Log.i("--onProviderDisabled","Provider Disabled " + provider);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        // Save the current speed & speed unit
+        outState.putString("STATE_SPEED",speed.getText().toString());
+        outState.putString("STATE_UNIT",speedUnit.getText().toString());
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore from saved instance
+        speed.setText(savedInstanceState.getString("STATE_SPEED"));
+        speedUnit.setText(savedInstanceState.getString("STATE_UNIT"));
+    }
+
     // Starts new ad requests from admob
     private void startAds(){
 
