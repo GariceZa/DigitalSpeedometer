@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -28,6 +29,9 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     private LocationManager locMan;
     private String provider;
     private AdView mAdView;
+    private int accuracy;
+    private int velocity;
+    private ImageView gpsAccuracy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +121,7 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         // Save the current speed & speed unit
         outState.putString("STATE_SPEED",speed.getText().toString());
         outState.putString("STATE_UNIT",speedUnit.getText().toString());
+        outState.putInt("accuracy",accuracy);
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(outState);
@@ -131,6 +136,9 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         // Restore from saved instance
         speed.setText(savedInstanceState.getString("STATE_SPEED"));
         speedUnit.setText(savedInstanceState.getString("STATE_UNIT"));
+        accuracy = savedInstanceState.getInt("accuracy");
+        setGpsAccuracy();
+
     }
 
     // Starts new ad requests from admob
@@ -236,6 +244,21 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
         }
     }
 
+    // Sets the satellite icon depending on the location accuracy
+    private void setGpsAccuracy(){
+
+        gpsAccuracy = (ImageView)findViewById(R.id.ivGPSAccuracy);
+        if(accuracy < 10){
+            gpsAccuracy.setBackgroundResource(R.drawable.gps_high);
+        }
+        else if( accuracy < 20){
+            gpsAccuracy.setBackgroundResource(R.drawable.gps_med);
+        }
+        else{
+            gpsAccuracy.setBackgroundResource(R.drawable.gps_low);
+        }
+    }
+
     private class RetrieveSpeed extends AsyncTask<Location,Void,Integer> {
 
         @Override
@@ -244,8 +267,11 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
             // Instantiates a new instance of the LocationInfo class
             LocationInfo locationInfo = new LocationInfo(params[0],getApplicationContext());
 
+            velocity = locationInfo.getSpeed();
+            accuracy = locationInfo.getAccuracy();
+
             // Returns the current speed
-            return locationInfo.getSpeed();
+            return velocity;
         }
 
         @Override
@@ -257,6 +283,9 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
             // Sets the speed unit text view
             setUnit();
+
+            // sets accuracy icon
+            setGpsAccuracy();
         }
     }
 }

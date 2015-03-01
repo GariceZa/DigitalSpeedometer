@@ -23,4 +23,10 @@ public class LocationInfo {
         Preferences prefs = new Preferences(context);
         return (int)(location.getSpeed() * prefs.getSpeedUnit());
     }
+
+    // Returns the accuracy of the location data
+    protected int getAccuracy(){
+
+        return (int)location.getAccuracy();
+    }
 }
