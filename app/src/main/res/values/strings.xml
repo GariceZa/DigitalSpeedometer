@@ -12,10 +12,11 @@
     <string name="knots">Knots</string>
     <string name="speed_default">---</string>
     <string name="settings">settings</string>
+    <string name="preferences">Preferences</string>
     <string name="preference_settings_title">User Preferences</string>
     <string name="list_preference_title">Speed Unit</string>
     <string name="list_preference_dialog_title">Speed Unit</string>
-    <string name="list_preference_summary">Set your required speed unit</string>
+    <string name="list_preference_summary">Kph / Mph / Knots - Changes take effect when your device receives a location update </string>
     <string name="preference_key">unit</string>
     <string name="default_preference">3.6</string>
 

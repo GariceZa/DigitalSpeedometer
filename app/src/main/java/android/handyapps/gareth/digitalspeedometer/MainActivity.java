@@ -248,7 +248,10 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
     private void setGpsAccuracy(){
 
         gpsAccuracy = (ImageView)findViewById(R.id.ivGPSAccuracy);
-        if(accuracy < 10){
+        if(accuracy == 0){
+            gpsAccuracy.setBackgroundResource(R.drawable.gps_low);
+        }
+        else if(accuracy < 10){
             gpsAccuracy.setBackgroundResource(R.drawable.gps_high);
         }
         else if( accuracy < 20){
