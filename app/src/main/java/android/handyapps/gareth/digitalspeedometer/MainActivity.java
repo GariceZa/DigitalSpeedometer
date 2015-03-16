@@ -21,6 +21,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.GoogleAnalytics;
 
 
 public class MainActivity extends ActionBarActivity implements LocationListener {
@@ -47,6 +48,20 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
         // sets the preference default values the first time the app runs
         PreferenceManager.setDefaultValues(this,R.xml.settings,false);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Get an Analytics tracker to report app starts
+        GoogleAnalytics.getInstance(this).reportActivityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // Stop the analytics tracking
+        GoogleAnalytics.getInstance(this).reportActivityStop(this);
     }
 
     @Override
