@@ -48,6 +48,9 @@ public class MainActivity extends ActionBarActivity implements LocationListener 
 
         // sets the preference default values the first time the app runs
         PreferenceManager.setDefaultValues(this,R.xml.settings,false);
+
+        // Get a Tracker (should auto-report)
+        ((GATrackers)getApplication()).getTracker(GATrackers.TrackerName.APP_TRACKER);
     }
 
     @Override

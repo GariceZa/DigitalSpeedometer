@@ -6,9 +6,9 @@
     <!-- Enable automatic Activity measurement -->
     <bool name="ga_autoActivityTracking">true</bool>
 
-    <screenName name="price.handyapps.gareth.digitalspeedometer.MainActivity">Speedometer Main</screenName>
+    <screenName name="android.handyapps.gareth.digitalspeedometer.MainActivity">Speedometer Main</screenName>
 
-    <screenName name="price.handyapps.gareth.digitalspeedometer.ShowUserPreferences">Speedometer Preferences</screenName>
+    <screenName name="android.handyapps.gareth.digitalspeedometer.ShowUserPreferences">Speedometer Preferences</screenName>
 
     <screenName name="com.google.android.gms.ads.AdActivity">Speedometer Ads</screenName>
 
