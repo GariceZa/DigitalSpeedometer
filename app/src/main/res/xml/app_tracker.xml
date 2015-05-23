@@ -6,6 +6,10 @@
     <!-- Enable automatic Activity measurement -->
     <bool name="ga_autoActivityTracking">true</bool>
 
+    <!--Enable automatic exception tracking-->
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+
+
     <screenName name="android.handyapps.gareth.digitalspeedometer.MainActivity">Speedometer Main</screenName>
 
     <screenName name="android.handyapps.gareth.digitalspeedometer.ShowUserPreferences">Speedometer Preferences</screenName>
